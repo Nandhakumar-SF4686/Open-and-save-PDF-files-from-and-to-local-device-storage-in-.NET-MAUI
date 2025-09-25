@@ -19,6 +19,8 @@ Create a new [MAUI App](https://dotnet.microsoft.com/en-us/learn/maui/first-app-
 
 ### 2. Namespace required
 
+**C#:**
+
 ```csharp
     using CommunityToolkit.Maui.Storage;
 ```
@@ -49,6 +51,10 @@ This namespace enables access to the PDF Viewer control.
 
 ### 4. Create open and save button.
 
+Create open and save button to open and save in the local storage using .NET MAUI PdfViewer.
+
+**XAML:**
+
 ```xaml
     <HorizontalStackLayout HorizontalOptions="End" Spacing="5" Margin="0,0,10,0">
         <Button x:Name="openButton" ToolTipProperties.Text="Open PDF" VerticalOptions="Center" Text="&#xe712;" FontFamily="Maui Material Assets" />
@@ -59,6 +65,8 @@ This namespace enables access to the PDF Viewer control.
 ### 5. Create event handler for open button.
 
 In open button event handler, platform-specific file type filters are defined to ensure the file picker displays only compatible PDF files across different operating systems. The file picker is then configured with a custom title and the appropriate file type settings. Once launched, it waits for the user to select a PDF file. After selection, the application opens a read stream from the chosen file, allowing access to its contents. Finally, get the stream and load the pdf in the PdfViewer control using the [LoadDocument](https://help.syncfusion.com/cr/maui/Syncfusion.Maui.PdfViewer.SfPdfViewer.html#Syncfusion_Maui_PdfViewer_SfPdfViewer_LoadDocument_System_IO_Stream_System_String_System_Nullable_Syncfusion_Maui_PdfViewer_FlattenOptions__) method.
+
+**C#:**
 
 ```csharp
     private void openButton_Clicked(object sender, EventArgs e)
@@ -105,6 +113,8 @@ In open button event handler, platform-specific file type filters are defined to
 
 In save button event handler, create a memory stream and save the current document content into the memory stream, then save the pdf in the local storage using the `SaveAsync` method in the CommunityToolkit.Maui library.
 
+**C#:**
+
 ```csharp
     private async void saveAsButton_Clicked(object sender, EventArgs e)
     {
@@ -120,6 +130,8 @@ In save button event handler, create a memory stream and save the current docume
 ```
 
 ### 7. Wire the event handlers for open and save button.
+
+**XAML:**
 
 ```xaml
     <HorizontalStackLayout HorizontalOptions="End" Spacing="5" Margin="0,0,10,0">
